@@ -1,18 +1,14 @@
 DB_CONFIG = [
     {
-        "host": "127.0.0.1",
-        "port": 8888,
-        "password": "admin" # 至少32个字符
-    },
-    {
-        "host": "127.0.0.1",  # 可配置多个db, 自由切换
-        "port": 8080
+        "host": "192.168.0.105",
+        "port": 6393,
+        "password": "joyuan_1234567891011121314151617181920" # 至少32个字符
     }
 ]
 
 SERVICE_CONFIG = {
     "host": "0.0.0.0",
-    "port": 5000,
+    "port": 6394,
     "debug": True
 }
 
