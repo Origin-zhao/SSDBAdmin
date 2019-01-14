@@ -5,7 +5,7 @@ SSDBAdmin
 [![Requirements Status](https://requires.io/github/jhao104/SSDBAdmin/requirements.svg?branch=master)](https://requires.io/github/jhao104/SSDBAdmin/requirements/?branch=master)
 [![](https://img.shields.io/badge/Powered%20by-@j_hao104-blue.svg)](http://www.spiderpy.cn/blog/)
 
-SSDB数据库的可视化界面管理工具
+SSDB数据库的可视化界面管理工具,支持数据库密码设置
 
 
 ## 功能
@@ -27,7 +27,8 @@ SSDB数据库的可视化界面管理工具
 DB_CONFIG = [
     {
         "host": "127.0.0.1",
-        "port": 8888
+        "port": 6393,
+        "password": "joyuan_1234567891011121314151617181920" # 至少32个字符
     },
     {
         "host": "127.0.0.1",
@@ -38,7 +39,7 @@ DB_CONFIG = [
 # service config
 SERVICE_CONFIG = {
     "host": "0.0.0.0",
-    "port": 5000,
+    "port": 6394,
     "debug": True
 }
 ```
