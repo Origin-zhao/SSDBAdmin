@@ -34,14 +34,17 @@ def getSAServer(request):
         server = DB_CONFIG[0]
         host = server.get('host', 'localhost')
         port = server.get('port', 8888)
-    return host, port
+        password =  server.get('password', '')
+    return host, port, password
 
 
 class SSDBClient(object):
     def __init__(self, request):
-        host, port = getSAServer(request)
-        self.__conn = Redis(connection_pool=BlockingConnectionPool(host=host, port=int(port)))
-
+        host, port, password = getSAServer(request)
+        if  password == '':   
+            self.__conn = Redis(connection_pool=BlockingConnectionPool(host=host, port=int(port)))
+        else:
+            self.__conn = Redis(connection_pool=BlockingConnectionPool(host=host, port=int(port), password=password))  
     def serverInfo(self):
         """
         DB service info(version/links/size/stats ...)
