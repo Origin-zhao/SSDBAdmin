@@ -30,16 +30,16 @@ def internal_error(error):
 
 @app.route('/ssdbadmin/')
 def index():
-    host, port = getSAServer(request)
+    host, port, password = getSAServer(request)
     server_info = SSDBClient(request).serverInfo()
     resp = make_response(render_template('index.html', server_info=server_info))
-    resp.set_cookie('SSDBADMINSERVER', '{host}:{port}'.format(host=host, port=port))
+    resp.set_cookie('SSDBADMINSERVER', '{host}:{port}:{password}'.format(host=host, port=port,password=password))
     return resp
 
 
 @app.context_processor
 def commonParam():
-    host, port = getSAServer(request)
-    server_list = ['{}:{}'.format(server.get('host'), server.get('port')) for server in DB_CONFIG]
-    current_server = '{}:{}'.format(host, port)
+    host, port,password = getSAServer(request)
+    server_list = ['{}:{}:{}'.format(server.get('host'), server.get('port'),server.get('password')) for server in DB_CONFIG]
+    current_server = '{}:{}:{}'.format(host, port,password)
     return dict(server_list=server_list, current_server=current_server, version=VERSION)

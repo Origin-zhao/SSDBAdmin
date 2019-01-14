@@ -27,9 +27,9 @@ def getSAServer(request):
         current ssdb's host and post
     """
     if 'SSDBADMIN_SERVER' in request.args:
-        host, port = request.args.get('SSDBADMIN_SERVER').split(':')
+        host, port,password = request.args.get('SSDBADMIN_SERVER').split(':')
     elif 'SSDBADMINSERVER' in request.cookies:
-        host, port = request.cookies.get('SSDBADMINSERVER').split(':')
+        host, port,password = request.cookies.get('SSDBADMINSERVER').split(':')
     else:
         server = DB_CONFIG[0]
         host = server.get('host', 'localhost')

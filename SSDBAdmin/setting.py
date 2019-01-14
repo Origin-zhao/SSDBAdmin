@@ -1,8 +1,8 @@
 DB_CONFIG = [
     {
         "host": "127.0.0.1",
-        "port": 8888
-        "password": "admin"
+        "port": 8888,
+        "password": "admin" # 至少32个字符
     },
     {
         "host": "127.0.0.1",  # 可配置多个db, 自由切换
